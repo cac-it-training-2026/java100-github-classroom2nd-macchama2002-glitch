@@ -67,7 +67,11 @@ public class Detective {
 		int weight = Integer.parseInt(weightStr);
 
 		//ここに記述
-
+		if ((190 <= height) && (weight <= 70)) {
+			System.out.println("探偵：\nその方は犯人である可能性がありますね。");
+		} else {
+			System.out.println("探偵：\nその方は犯人ではありませんね。");
+		}
 	}
 
 }
