@@ -71,18 +71,75 @@
  *
  */
 
+/*package lesson03.challenge10;
+
+public class Explorer {
+
+	public static void main(String[] args) {
+
+		System.out.println("隊長：");
+		System.out.println("滝の前に着いたよ！\n");
+
+		//ここにfor文のネスト、if文を利用した処理を記述する。
+		for (int hour = 13; hour <= 16; hour++) {
+			for (int min = 0; min < 60; min++) {
+				if (hour == 13 && min == 0) {
+					min = 30;
+				}
+				if (hour == 16 && min == 30) {
+					System.out.println("隊長：\n16:30になったよ"
+							+ "\n滝の水流が弱くなりました。");
+					System.out.println("やったー！宝物だ！");
+					break;
+				}
+				if (min % 15 == 0) {
+					System.out.println("隊長：");
+					System.out.printf("%d:%02d 待ち遠しいな～%n%n", hour, min);
+
+				}
+			}
+
+		}
+
+	}
+}*/
 package lesson03.challenge10;
 
 public class Explorer {
 
-        public static void main(String[] args) {
+	public static void main(String[] args) {
 
-                System.out.println("隊長：");
-                System.out.println("滝の前に着いたよ！\n");
+		System.out.println("隊長：");
+		System.out.println("滝の前に着いたよ！\n");
 
+		// 13時〜16時
+		for (int hour = 13; hour <= 16; hour++) {
 
-                //ここにfor文のネスト、if文を利用した処理を記述する。
+			// 0分,15分,30分,45分
+			for (int min = 0; min <= 45; min += 15) {
 
+				// 13:00はスキップ
+				if (hour == 13 && min < 30) {
+					continue;
+				}
 
-        }
+				System.out.println("隊長：");
+
+				// 16:30
+				if (hour == 16 && min == 30) {
+					System.out.printf("%d:%02d 時間になったよ%n%n", hour, min);
+					System.out.println("滝の水流が弱くなりました。\n");
+					System.out.println("やったー！宝物だー！");
+					break;
+				} else {
+					System.out.printf("%d:%02d 待ち遠しいな～%n%n", hour, min);
+				}
+			}
+
+			// 16:30で終わる
+			if (hour == 16) {
+				break;
+			}
+		}
+	}
 }
