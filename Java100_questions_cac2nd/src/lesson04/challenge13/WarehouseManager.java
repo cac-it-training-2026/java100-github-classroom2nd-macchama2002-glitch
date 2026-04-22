@@ -63,32 +63,40 @@ public class WarehouseManager {
 
 	public static void main(String[] args) throws IOException {
 
-
 		//配列の宣言および初期化処理を記述する
-
+		String[] aisatu = new String[3];
+		aisatu[0] = "へい！らっしゃい！！";
+		aisatu[1] = "ご用件をお伺い致します。";
+		aisatu[2] = "まいどあり！！またどうぞ";
 
 		System.out.println("Yさん：");
 		System.out.println("まず、MISAKI○の今の状態を確かめようかな。\n");
 
-
 		//三つのあいさつパターンの出力処理を記述する
 
-
+		for (int i = 0; i < aisatu.length; i++) {
+			System.out.println("あいさつパターン" + (i + 1) + "..." + aisatu[i]);
+		}
 		System.out.println("Yさん：");
 		System.out.println("うわぁ～。どれか変更しよう。\n");
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-
 		//入力処理および入力値の代入処理
+		System.out.println("どのパターンを変更しますか＞");
+		int num = Integer.parseInt(br.readLine());
 
+		System.out.println("あいさつを吹き込んでください＞");
+		String newAisatu = br.readLine();
+		aisatu[num - 1] = newAisatu;
 
 		System.out.println("\nYさん：");
 		System.out.println("よし。もう一度確かめてみよう。\n");
 
-
 		//三つのあいさつパターンの出力処理を記述する
-
+		for (int i = 0; i < aisatu.length; i++) {
+			System.out.println("あいさつパターン" + (i + 1) + "..." + aisatu[i]);
+		}
 
 		System.out.println("Yさん：");
 		System.out.println("まあ少しはマシになったかな。");
