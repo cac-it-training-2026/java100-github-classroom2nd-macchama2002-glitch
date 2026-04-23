@@ -1,64 +1,23 @@
-/**
- * 第5章 ロボット工場のお仕事
- *
- * 問題9  あとかたづけロボットの追加
- *
- * 引数として渡された食材を
- * 0でクリアするクラスを作成します。
- *
- * コメントの位置に適切なコードを記述し、
- * 実行例と同じメッセージを表示してください。
- *
- * <実行例>
- *  Rさん：
- *  あとかたづけをしてくれるロボットも欲しいところですね。
- *
- *  G博士：
- *  そうれはもう作ってあるぞ。
- *
- *  Rさん：
- *  えっ！どうやって使うんですか？
- *
- *  G博士：
- *  今まで使ってきた材料を一つにまとめて渡すときれいにしてくれるんじゃ。
- *
- *  Rさん：
- *  早速やってみます。
- *
- *  小麦粉の量を入力してください（グラム）＞○
- *
- *  砂糖の量を入力してください（グラム）＞○
- *
- *  卵の個数を入力してください＞○
- *
- *  バターの量を入力してください（グラム）＞○
- *
- *  【※調理できる料理】が出来ました。
- *
- *  あとかたづけをします。
- *
- *  小麦粉  ：0g
- *  砂糖    ：0g
- *  卵      ：0個
- *  バター  ：0g
- *
- *  きれいになりました。
- *
- */
-
-package lesson05.challenge09;
+package lesson08.lesson10;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-//ここに問題8で作成したクラス(変更なし)を記述してください。
+//低確率で不思議な飴を生成するというとんでもない機能を追加
+class NeoRobot {
+	boolean mysteryCandy() {
+		if (Math.random() < 0.1) {
+			System.out.println("\n博士\nなんじゃこの飴は!?!?!?!?");
+			return true;
+		} else {
+			System.out.println("\nなにもできんあかったなぁ...");
+			return false;
+		}
+	}
+}
 
-//ここに次の条件を満たすクラスを作成してください。
-//クラス名：ClearRobot
-//メソッド名：clearTable(引数int[] ingredients
-//戻り値void、渡された配列を0でクリアする)
 class ClearRobot {
 	void clearTable(int[] ingredients) {
 		Arrays.fill(ingredients, 0);
@@ -115,7 +74,7 @@ class Robot {
 	}
 }
 
-public class RobotMaker {
+public class SuperRobot {
 
 	public static void main(String[] args) throws IOException {
 
@@ -181,6 +140,20 @@ public class RobotMaker {
 		System.out.println("バター  ：" + ingredients[3] + "g");
 
 		System.out.println("\nきれいになりました。");
+
+		NeoRobot neoRobot = new NeoRobot();
+		boolean hasCandy = neoRobot.mysteryCandy();
+
+		if (hasCandy) {
+			System.out.print("\n飴で作る料理を選んでください（クッキー / オムレツ / ゆで卵）＞");
+			String candyMenu = br.readLine();
+
+			if (candyMenu.equals("クッキー") || candyMenu.equals("オムレツ") || candyMenu.equals("ゆで卵")) {
+				System.out.println("不思議な飴を使って" + candyMenu + "を1つ作成しました。");
+			} else {
+				System.out.println("その料理は作れません。");
+			}
+		}
 	}
 
 }

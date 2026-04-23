@@ -41,7 +41,7 @@ public class Yamanotesen {
 			for (int i = 0; i < stations.length; i++) {
 				//文字列は == ではなく equals() で比較する
 				//== は同じものかどうかを判定し、
-				//equals() は文字列の中身が同じかを判定する
+				//equals() は文字列の中身が同じかを判定する(java限定)
 				if (stations[i].equals(inputStation)) {
 					//入力された駅名が、山手線の駅名配列の中に見つかった場合
 					//hitFlag を true
