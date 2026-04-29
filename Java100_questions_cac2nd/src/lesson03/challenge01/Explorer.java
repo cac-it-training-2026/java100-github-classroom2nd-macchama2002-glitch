@@ -47,15 +47,15 @@ public class Explorer {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		//ここにfor文を記述する。
-
+		for (int i = 1; i <= 5; i++) {
 			System.out.print("応募する人の名前を入れてください＞");
 
 			String name = br.readLine();
 			System.out.println("\n隊長：");
 			System.out.println(name + "さん合格！\n");
 
-		//ここに  } を記述する。
-
+			//ここに  } を記述する。
+		}
 		System.out.println("定員に達しました。募集を締め切ります。");
 
 	}

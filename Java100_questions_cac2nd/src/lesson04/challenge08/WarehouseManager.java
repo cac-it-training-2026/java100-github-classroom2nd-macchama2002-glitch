@@ -54,12 +54,44 @@ public class WarehouseManager {
 		int[] ABKosanArray1 = new int[5];
 		int[] ABKosanArray2 = new int[5];
 
-
 		//ここに重複チェックおよび値の代入処理を記述する①(1～5)
+		int num = 0;
+		boolean flag = false;
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			do {
+				flag = false;
+				num = (int) (Math.random() * 5) + 1;
+				for (int j = 0; j < ABKosanArray1.length; j++) {
+					if (ABKosanArray1[j] == num) {
+						flag = true;
+						break;
+					}
+				}
+			} while (flag);
+			ABKosanArray1[i] = num;
 
+		}
 
 		//ここに重複チェックおよび値の代入処理を記述する②(6～10)
-
+		num = 0;
+		flag = false;
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			do {
+				flag = false;
+				num = (int) (Math.random() * 10) + 1;
+				if (num > 5) {
+					for (int j = 0; j < ABKosanArray2.length; j++) {
+						if (ABKosanArray2[j] == num) {
+							flag = true;
+							break;
+						}
+					}
+				} else {
+					flag = true;
+				}
+			} while (flag);
+			ABKosanArray2[i] = num;
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産から新たに預かった荷物と以前から預かっている荷物の");
@@ -88,11 +120,30 @@ public class WarehouseManager {
 		System.out.println("E主任：");
 		System.out.println("その二つの荷物を奇数群、偶数群で入れ替えてください。\n");
 
-
-
 		//ここに奇数群(ABKosanArray1)と偶数群(ABKosanArray2)に振り分ける処理を記述する。
 
+		int guusuu = 0;
+		int kisuu = 0;
+		int change = 0;
+		do {
+			for (int i = guusuu; i < ABKosanArray1.length; i++) {
+				if (ABKosanArray1[i] % 2 == 0) {
+					guusuu = i;
+					break;
+				}
+			}
+			for (int i = kisuu; i < ABKosanArray2.length; i++) {
+				if (ABKosanArray2[i] % 2 != 0) {
+					int hozon = ABKosanArray1[guusuu];
+					ABKosanArray1[guusuu] = ABKosanArray2[i];
+					ABKosanArray2[i] = hozon;
+					kisuu = i;
+					change++;
+					break;
 
+				}
+			}
+		} while (change < 2);
 
 		System.out.println("Yさん：");
 		System.out.println("はい、入れ替えました。");
