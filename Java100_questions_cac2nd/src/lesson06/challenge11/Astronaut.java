@@ -45,13 +45,34 @@ class Gammalian {
 
 	private boolean isGood;
 
-	public void setItem() {
-
+	public String getItem() {
+		return item;
 	}
 
-	public void getItem() {
+	public void setItem(String item) {
+		boolean hit = false;
+		for (int i = 0; i < 10; i++) {
+			if (item.indexOf(Integer.toString(i)) != -1) {
+				hit = true;
+				break;
+			}
+		}
+		if (hit) {
+			isGood = true;
+		} else {
+			isGood = false;
+		}
 		this.item = item;
 	}
+
+	public boolean isGood() {
+		return isGood;
+	}
+
+	public void setGood(boolean isGood) {
+		this.isGood = isGood;
+	}
+
 }
 
 public class Astronaut {
@@ -63,10 +84,13 @@ public class Astronaut {
 		String present = br.readLine();
 
 		//ここに適切な処理を記述する
+		Gammalian gammalian = new Gammalian();
+		gammalian.setItem(present);
 
 		boolean isGood = false;
 
 		//ここに適切な処理を記述する
+		isGood = gammalian.isGood();
 
 		System.out.println("\nγ星人：");
 		if (isGood) {
